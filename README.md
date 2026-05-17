@@ -1,6 +1,6 @@
 # Pathogenic-versus-beneficial-bacteria-classification
 A Machine learning model to classify soil bactertia based on 16s rRNA sequences.
-This repository contains an end-to-end Machine Learning pipeline built in Python to classify soil-borne bacteria majorly pathogenic (agrobacterium strain) and beneficial (rhizobium)  based on  their 16S rRNA genomic sequences.
+This repository contains an end-to-end Machine Learning pipeline built in Python to classify soil-borne bacteria majorly pathogenic (_Agrobacterium_ strain) and beneficial (_Rhizobium_)  based on  their 16S rRNA genomic sequences.
 
 ## Project Overview
 The objective of this project is to accurately distinguish between pathogenic strains (such as *Agrobacterium*) and beneficial variants (agrobacterium) found in soil . Instead of treating biological data purely as raw matrices, the pipeline applies customized feature engineering tailored for genomic sequences.
