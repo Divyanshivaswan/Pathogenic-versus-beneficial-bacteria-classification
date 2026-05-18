@@ -20,12 +20,12 @@ The model was trained on distinct genomic sequences of 16srRNA in FASTA format o
 - This allows the model to be instantly loaded for predicting unknown 16S rRNA sequences without retraining.
 
 ## Data Visualization (Tech Stack)
-  ### Languages and Frameworks: Python , Streamlit
-  ### Libraries or Data Science Stack : Scikit-Learn, Pandas, NumPy
-  ### Visualization: Used **Seaborn** and Matplotlib to plot evaluation metrics, including:
-   #### Confusion Matrix (to analyze True Positives vs False Positives)
-   #### Classification Reports** (Precision, Recall, and F1-Score)
-   #### validation** : 5 fold cross validation
+ #### Languages and Frameworks: Python , Streamlit
+ #### Libraries or Data Science Stack : Scikit-Learn, Pandas, NumPy
+ #### Visualization: Used **Seaborn** and Matplotlib to plot evaluation metrics, including:
+  Confusion Matrix (to analyze True Positives vs False Positives)
+  Classification Reports** (Precision, Recall, and F1-Score)
+   validation** : 5 fold cross validation
  
 ## How to Test the Predictor
 You can test the trained model using two interactive methods included in this repository:
