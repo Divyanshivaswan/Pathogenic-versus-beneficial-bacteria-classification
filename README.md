@@ -17,15 +17,15 @@ The model was trained on distinct genomic sequences of 16srRNA in FASTA format o
 
 ## Model Serialization & Deployment
 - **Predictor Pipeline:** The final trained model and vectorizer pipeline were serialized using **Joblib / Pickle** to generate a reusable predictor file.
-- This allows the model to be instantly loaded for predicting and scoring unknown rare genetic variants or new bacterial sequences without retraining.
+- This allows the model to be instantly loaded for predicting unknown 16S rRNA sequences without retraining.
 
 ## Data Visualization (Tech Stack)
-  **Language:** Python
-  **Libraries:** Scikit-Learn, Pandas, NumPy
-  **Visualization:** Used **Seaborn** and Matplotlib to plot evaluation metrics, including:
-  **Confusion Matrix** (to analyze True Positives vs False Positives)
-  **Classification Reports** (Precision, Recall, and F1-Score)
-  **validation** : 5 fold cross validation
+  **###Languages and Frameworks:###** Python , Streamlit
+  **###Libraries or Data Science Stack :###** Scikit-Learn, Pandas, NumPy
+  **###Visualization###:** Used **Seaborn** and Matplotlib to plot evaluation metrics, including:
+     **Confusion Matrix** (to analyze True Positives vs False Positives)
+     **Classification Reports** (Precision, Recall, and F1-Score)
+     **validation** : 5 fold cross validation
  
 ## How to Test the Predictor
 You can test the trained model using two interactive methods included in this repository:
@@ -40,7 +40,7 @@ You can test the trained model using two interactive methods included in this re
 - Install dependencies: `pip install streamlit scikit-learn pandas`
 - Launch the web interface by running: `streamlit run app.py`
 
- **Limitation & Future Scope**:
+ **##Limitation & Future Scope##**:
 -Dataset Scope: The current classifier is a prototype trained specifically on Agrobacterium and Rhizobium sequences. 
  It does  not classify all general pathogenic or beneficial bacteria yet.
 
