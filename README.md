@@ -39,3 +39,13 @@ You can test the trained model using two interactive methods included in this re
 - Clone this repository locally.
 - Install dependencies: `pip install streamlit scikit-learn pandas`
 - Launch the web interface by running: `streamlit run app.py`
+
+ **Limitation & Future Scope**:
+-Dataset Scope: The current classifier is a prototype trained specifically on Agrobacterium and Rhizobium sequences. 
+ It does  not classify all general pathogenic or beneficial bacteria yet.
+
+-Scaling the Dataset: Expanding the pipeline to include a wider diversity of soil-borne pathogens 
+ (like Ralstonia or     Xanthomonas) and beneficial microbes (like Pseudomonas or Bacillus).
+
+-Deep Learning Integration: Testing Deep Learning architectures (like CNNs or Transformers) as the sequence database
+ grows larger.
