@@ -6,9 +6,9 @@ This repository contains an end-to-end Machine Learning pipeline built in Python
 The objective of this project is to accurately distinguish between pathogenic strains (such as *Agrobacterium*) and beneficial variants (agrobacterium) found in soil . Instead of treating biological data purely as raw matrices, the pipeline applies customized feature engineering tailored for genomic sequences.
 
 ## Dataset & Biological Input
-The model was trained on distinct genomic sequences in FASTA format:
-- `pathogenic_bacteria.fasta`: Contains genomic sequences of plant-pathogenic strains.
-- `beneficial_bacteria.fasta`: Contains sequences of growth-promoting soil microbes.
+The model was trained on distinct genomic sequences of 16srRNA in FASTA format obtained from NCBI:
+- `pathogenic_bacteria - Agrobacterium.fasta: Contains genomic sequences of plant-pathogenic strains.
+- `beneficial_bacteria - Rhizobium.fasta : Contains sequences of growth-promoting soil microbes.
 
 ## Key Features & Methodology
 - **Sequence Tokenization:** Implemented k-mer tokenization to break down long DNA/RNA sequences into overlapping biological tokens.
