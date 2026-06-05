@@ -4,22 +4,19 @@ This repository contains an end-to-end Machine Learning pipeline built in Python
 
 ## Project Overview
 The objective of this project is to accurately distinguish between pathogenic strains (such as *Agrobacterium*) and beneficial variants (agrobacterium) found in soil .
-Instead of treating biological data purely as raw matrices, the pipeline applies customized feature engineering tailored for genomic sequences.
 
-## Dataset & Biological Input
+## Dataset 
 The model was trained on distinct genomic sequences of 16srRNA in FASTA format obtained from NCBI:
 - `pathogenic_bacteria - Agrobacterium.fasta: Contains genomic sequences of plant-pathogenic strains.
 - `beneficial_bacteria - Rhizobium.fasta : Contains sequences of growth-promoting soil microbes.
   <br>
-   a perfectly balanced dataset of 500 pathogenic (Agrobacterium) and 500 beneficial (Rhizobium) strains to eliminate class imbalance bias. the size  range is also strictly restrict  between 1,200 to 1,400 bp to successfully mitigate size-based shortcut learning and filtering sequence outliers.
+A perfectly balanced dataset of 500 pathogenic (Agrobacterium) and 500 beneficial (Rhizobium) strains is taken to eliminate class imbalance bias. the size  range is also strictly restrict  between 1,200 to 1,400 bp to successfully mitigate size-based shortcut learning and filtering sequence outliers.
 
 
-## Key Features & Methodology
+## Methodology
 - **Sequence Tokenization:** Implemented k-mer tokenization to break down long DNA/RNA sequences into overlapping biological tokens.
 - **Feature Extraction:** Utilized TF-IDF (Term Frequency-Inverse Document Frequency) vectorization to capture structural genomic patterns.
-- **Classification Models:** Trained and optimized classical Machine Learning models using Scikit-Learn, achieving an overall classification accuracy of **98%**.
-
-## Model Serialization & Deployment
+- **Classification Models:** Trained and optimized classical Machine Learning models using Scikit-Learn, achieving an overall classification accuracy of **98% to 99%**.
 - **Predictor Pipeline:** The final trained model and vectorizer pipeline were serialized using **Joblib / Pickle** to generate a reusable predictor file.
 - This allows the model to be instantly loaded for predicting unknown 16S rRNA sequences without retraining.
 
