@@ -1,16 +1,20 @@
 # Pathogenic-versus-beneficial-bacteria-classification
-A Machine learning model to classify soil bactertia based on 16s rRNA sequences.
+This is a Machine learning model to classify soil bactertia based on 16s rRNA sequences.
 This repository contains an end-to-end Machine Learning pipeline built in Python to classify soil-borne bacteria majorly pathogenic (_Agrobacterium_ strain) and beneficial (_Rhizobium_)  based on  their 16S rRNA genomic sequences.
 
 ## Project Overview
-The objective of this project is to accurately distinguish between pathogenic strains (such as *Agrobacterium*) and beneficial variants (agrobacterium) found in soil .
+Soil bacteria can look very similar genetically but have completely opposite impacts on plants. For example, *Agrobacterium* is a pathogen that causes diseases in crops, while *Rhizobium* is a beneficial microbe that helps plants grow through nitrogen fixation. Telling them apart is highly important for both agriculture and biological safety.
+
+The goal of this project is to build a reliable Machine Learning pipeline that can automatically classify these two types of bacteria using their 16S rRNA genomic sequences. Instead of running slow alignment tools, this project uses a data-driven approach: breaking DNA sequences down into short pieces (k-mers) and calculating their frequency patterns using TF-IDF. 
+
+By finding these hidden genomic patterns, the final trained model can quickly screen raw sequences and accurately predict whether a bacteria strain is harmful or beneficial, without needing heavy deep-learning setups.
 
 ## Dataset 
-The model was trained on distinct genomic sequences of 16srRNA in FASTA format obtained from NCBI:
-- `pathogenic_bacteria - Agrobacterium.fasta: Contains genomic sequences of plant-pathogenic strains.
-- `beneficial_bacteria - Rhizobium.fasta : Contains sequences of growth-promoting soil microbes.
+The model was trained on distinct genomic sequences of 16S rRNA in FASTA format obtained from NCBI:
+- 'pathogenic_bacteria' - Agrobacterium.fasta: Contains genomic sequences of plant-pathogenic strains.
+- 'beneficial_bacteria' - Rhizobium.fasta : Contains sequences of growth-promoting soil microbes.
   <br>
-A perfectly balanced dataset of 500 pathogenic (Agrobacterium) and 500 beneficial (Rhizobium) strains is taken to eliminate class imbalance bias. the size  range is also strictly restrict  between 1,200 to 1,400 bp to successfully mitigate size-based shortcut learning and filtering sequence outliers.
+A perfectly balanced dataset of 500 pathogenic (*Agrobacterium*) and 500 beneficial (*Rhizobium*) strains was used to eliminate class imbalance bias. Aditionally, sequence lengths were strictly restricted to a 1,200 to 1,400 bp rang to filter out outliers and prevent size-based shortcut learning .
 
 
 ## Methodology
