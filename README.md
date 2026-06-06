@@ -29,7 +29,7 @@ To ensure proper model training, the pipeline applies two main data engineering 
 - **Languages & Frameworks:** Python, Streamlit
 - **Data Science Libraries:** Scikit-Learn, Pandas, NumPy
 - **Visualization:** Seaborn and Matplotlib (used to generate performance charts, confusion matrices, and classification reports).
-- **Validation Strategy:** 5-fold cross-validation evaluated across multiple random seeds.
+- **Validation Strategy:** 5-fold cross-validation.
    
 ## Plots
 
