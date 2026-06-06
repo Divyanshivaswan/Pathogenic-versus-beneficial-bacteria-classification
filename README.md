@@ -1,13 +1,14 @@
-# Pathogenic-versus-beneficial-bacteria-classification
-This is a Machine learning model to classify soil bactertia based on 16s rRNA sequences.
-This repository contains an end-to-end Machine Learning pipeline built in Python to classify soil-borne bacteria majorly pathogenic (_Agrobacterium_ strain) and beneficial (_Rhizobium_)  based on  their 16S rRNA genomic sequences.
+# Soil Bacteria Classification Using 16S rRNA Sequences
+A practical Machine Learning project to classify soil bacteria into pathogenic (*Agrobacterium*) and beneficial (*Rhizobium*) strains based on genomic data.
+
+This repository contains the complete Python pipeline, from downloading raw DNA data to deploying a web-based predictor application.
 
 ## Project Overview
-Soil bacteria can look very similar genetically but have completely opposite impacts on plants. For example, *Agrobacterium* is a pathogen that causes diseases in crops, while *Rhizobium* is a beneficial microbe that helps plants grow through nitrogen fixation. Telling them apart is highly important for both agriculture and biological safety.
+Soil contains thousands of bacterial strains that look very similar but do completely different things. For example, *Agrobacterium* causes harmful diseases in crops, while *Rhizobium* helps plants grow by fixing nitrogen in the soil. Safely and quickly telling them apart is highly important for both agriculture and biological safety.
 
-The goal of this project is to build a reliable Machine Learning pipeline that can automatically classify these two types of bacteria using their 16S rRNA genomic sequences. Instead of running slow alignment tools, this project uses a data-driven approach: breaking DNA sequences down into short pieces (k-mers) and calculating their frequency patterns using TF-IDF. 
+The goal of this project is to build a reliable Machine Learning model that automates this identification process using 16S rRNA genetic sequences. Instead of using traditional alignment tools that can be slow and computationally heavy, this pipeline uses a data-driven approach. Raw DNA strings are broken down into short biological tokens (k-mers) to analyze their frequency patterns. 
 
-By finding these hidden genomic patterns, the final trained model can quickly screen raw sequences and accurately predict whether a bacteria strain is harmful or beneficial, without needing heavy deep-learning setups.
+This allows the final model to quickly screen new, unknown sequences and flag whether they are harmful or beneficial without needing expensive deep-learning setups.
 
 ## Dataset & Quality Control
 The model was trained on raw genomic sequences downloaded directly from NCBI:
@@ -18,22 +19,19 @@ To ensure proper model training, the pipeline applies two main data engineering 
 1. **Handling Class Imbalance:** Uses a perfectly balanced dataset of 500 pathogenic and 500 beneficial sequences to prevent the classifier from biasing toward one class.
 2. **Preventing Shortcut Learning:** Filters the dataset to keep only sequences between 1,200 and 1,400 base pairs (bp). This quality control step removes extreme outliers and ensures the model doesn't cheat by simply memorizing sequence lengths instead of learning actual genomic features.
 
+##  Pipeline 
+- **Sequence Tokenization:** Splits long, continuous 16S rRNA strings into smaller, overlapping chunks called k-mers.
+- **Feature Extraction:** Applies TF-IDF vectorization. Instead of treating DNA as raw text, this technique calculates the statistical weight and importance of specific sequence motifs across both bacterial groups.
+- **Model Training:** Trains and fine-tunes multiple classical Machine Learning models using Scikit-Learn to establish a solid accuracy baseline of **98% to 99%**.
+- **Model Saving & Deployment:** Serializes the final optimized pipeline using **Joblib / Pickle**. This packages the trained weights and text vectorizer into a single file so new sequences can be tested instantly without local retraining loops.
 
-## Core Pipeline & Feature Engineering
-- **Sequence Tokenization:** Implemented a rolling k-mer extraction strategy to segment long continuous 16S rRNA sequences into overlapping biological tokens.
-- **Feature Extraction:** Applied TF-IDF (Term Frequency-Inverse Document Frequency) vectorization to capture structural genomic patterns and motif weights across classes rather than processing raw characters.
-- **Classification Approach:** Evaluated and tuned classical Machine Learning frameworks using Scikit-Learn, pushing the baseline to a peak classification accuracy of **98% to 99%**.
-- **Model Inference & Deployment:** Serialized the final trained pipeline using **Joblib / Pickle** to generate a portable predictor module. This allows the model to instantly ingest and predict unseen 16S rRNA sequences without requiring local retraining loops.
-
-## Technical Stack & Diagnostic Suite
+## Technical Stack
 - **Languages & Frameworks:** Python, Streamlit
-- **Data Science Stack:** Scikit-Learn, Pandas, NumPy
-- **Visualization Suite:** Utilized **Seaborn** and Matplotlib to generate performance diagnostic plots, including:
-- **Confusion Matrices:** Tracking predictive precision and checking for critical False Negatives.
-- **Classification Reports:** Documenting structural Precision, Recall, and F1-Scores.
-- **validation:**  5 fold cross validation
+- **Data Science Libraries:** Scikit-Learn, Pandas, NumPy
+- **Visualization:** Seaborn and Matplotlib (used to generate performance charts, confusion matrices, and classification reports).
+- **Validation Strategy:** 5-fold cross-validation evaluated across multiple random seeds.
    
-## Visual Insights & Diagnostic Plots
+## Plots
 
 <img width="850" height="547" alt="Sequence Length Distribution" src="https://github.com/user-attachments/assets/b87abe00-feb2-4b8d-afe9-3b15b3d9f5b4" />
 <br>
@@ -62,7 +60,7 @@ Figure 3: Hexamer Feature Importance & Motif Signature
 <img width="990" height="590" alt="Model Benchmarking" src="https://github.com/user-attachments/assets/266bacab-365e-4dc5-b00b-98abd503e999" />
 <br>
 Figure 4: Model Performance Benchmarking & Stability Analysis  
-*A clear comparison evaluating accuracy across 5 different classical machine learning models (including Logistic Regression, Random Forest, SVM, Naive Bayes, and Gradient Boosting).*
+*A clear comparison evaluating accuracy across 6 different classical machine learning models (including Naive Bayes, Logistic Regression, XGBoost, KNN, SVM and Random Forest ).*
 
 <br>
 <br>
